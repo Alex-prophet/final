@@ -22,7 +22,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
+      <div class="container" style="background-color: black" >
         <a class="navbar-brand" href="{{route('index')}}">Mytest</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -30,18 +30,18 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{route('index')}}">Домой
+              <a class="nav-link" href="{{route('index')}}"style="color:red">Домой
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('about')}}">Наша компания</a>
+              <a class="nav-link "  href="{{route('about')}}"style="color:red" >Наша компания</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('services')}}">Сервис</a>
+              <a class="nav-link" href="{{route('services')}}"style="color:red">Сервис</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}">Контакты</a>
+              <a class="nav-link" href="{{route('contact')}}"style="color:red">Контакты</a>
             </li>
           </ul>
         </div>

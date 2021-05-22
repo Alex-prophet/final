@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Contact;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -15,6 +15,7 @@ class PageController extends Controller
     }
 
     public function contact(){
-    	 return view('contact');
+
+    	 return view('contact',['contacts'=>Contact::all()]);
     }
 }

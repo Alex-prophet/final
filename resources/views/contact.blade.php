@@ -8,11 +8,12 @@
 <!-- Blog Entries Column -->
         <div class="col-md-8">
 
-          <h1 class="my-4">Тут наши данные
-           
-          </h1>
-<p>Номер телефона</p>
-<p>Почта</p>
-    
+          <h1 class="my-4">Тут наши данные:</h1>
+<ul>
+         @foreach($contacts as $contact)
+         <li>{{$contact->title}}:{{$contact->value}}</li>
+           @endforeach
+
+           </ul>
         </div>
         @endsection
