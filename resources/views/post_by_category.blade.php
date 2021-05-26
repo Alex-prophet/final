@@ -1,16 +1,16 @@
 @extends('layuot')
 
-@section('title',$author->name)
+@section('title',$category->title)
 @section('content')
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
 
-        <h1 class="my-4">Посты принадлежащие автору
-            <small style="color:red">{{$author->name}}</small>
+        <h1 class="my-4">Посты категории
+            <small style="color:red">{{$category->title}}</small>
         </h1>
 
-    @foreach($author->posts as $post)
+    @foreach($category->post as $post)
         <!-- Blog Post -->
             <div class="card mb-4">
                 <img class="card-img-top" src="{{$post->image}}" alt="Card image cap">
@@ -20,8 +20,8 @@
                     <a href="{{route('single_post',$post->id)}}" class="btn btn-primary">Далее &rarr;</a>
 
                     <div class="card-footer text-muted">
-                        Опубликован {{date('d F Y в G:i',strtotime ($post->created_at))}}
-
+                        Опубликован {{date('d F Y в G:i',strtotime ($post->created_at))}} автором
+                        <a href="{{route ('post_by_author',$post->author->key)}}">{{$post->author->name}}</a>
                     </div>
                     <div class="card-footer text-muted">
                         Категории:
@@ -31,9 +31,8 @@
                         @endforeach
                     </div>
 
-
                 </div>
-
+            </div>
     @endforeach
 
 
@@ -51,4 +50,3 @@
 
     </div>
 @endsection
-

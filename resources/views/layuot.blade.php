@@ -73,38 +73,43 @@
 
           <!-- Categories Widget -->
           <div class="card my-4">
-            <h5 class="card-header">Categories</h5>
+            <h5 class="card-header">Категории</h5>
             <div class="card-body">
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
+                      @inject('categories', '\App\Category')
+                      @foreach($categories->show_categories() as $category)
                     <li>
-                      <a href="#">Web Design</a>
+                      <a href="{{route('post_by_category',$category->key)}}">{{$category->title}}</a>
                     </li>
-                    <li>
-                      <a href="#">HTML</a>
-                    </li>
-                    <li>
-                      <a href="#">Freebies</a>
-                    </li>
+                      @endforeach
                   </ul>
                 </div>
-                <div class="col-lg-6">
-                  <ul class="list-unstyled mb-0">
-                    <li>
-                      <a href="#">JavaScript</a>
-                    </li>
-                    <li>
-                      <a href="#">CSS</a>
-                    </li>
-                    <li>
-                      <a href="#">Tutorials</a>
-                    </li>
-                  </ul>
-                </div>
+
               </div>
             </div>
           </div>
+
+            <div class="card my-4">
+                @inject('authors', '\App\Author')
+                <h5 class="card-header">Авторы (всего {{$authors->show_count()}})</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-unstyled mb-0">
+
+                                @foreach($authors->show_authors() as $author)
+                                    <li>
+                                        <a href="{{route ('post_by_author',$author->key)}}">{{$author->name}} </a>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
 
           <!-- Side Widget -->
           <div class="card my-4">
