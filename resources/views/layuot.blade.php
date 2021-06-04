@@ -43,6 +43,11 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact')}}"style="color:red">Контакты</a>
             </li>
+              @if(\Illuminate\Support\Facades\Auth::check())
+                  <li class="nav-item">
+                      <a class="nav-link" href="{{route('admin_post_get')}}"style="color:red">"Босс"</a>
+                  </li>
+              @endif
               <li class="nav-item" >
                   <a class="nav-link" style="color:gold"
                      href="{{route('login')}}">@if( \Illuminate\Support\Facades\Auth::check()){{\Illuminate\Support\Facades\Auth::user()->name}}

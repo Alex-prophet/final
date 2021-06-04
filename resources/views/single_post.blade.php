@@ -33,6 +33,8 @@
                 Добавлен:{{$comment->created_at}}
                 <hr>
             @endforeach
+
+        @if(Auth::user()->role == 2)
             <form action="save_comment" method="post">
                     @csrf
                     <h4> Добавить комментарий</h4>
@@ -41,7 +43,7 @@
                     <textarea class="form-control" name="comment"></textarea>
                     <button class="btn-save btn btn-primary btn-cm">Добавить комментарий </button>
                 </form>
-
+            @endif
         @else
             <p>Войдите в аккаунт для просмотра и создания комментария</p>
         @endif
