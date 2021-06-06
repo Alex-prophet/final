@@ -5,6 +5,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    /**
+     * @var array|mixed|string|null
+     */
+    private $title;
+
     public function author()
     {
         return $this->belongsTo(Author::class);

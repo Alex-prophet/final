@@ -10,7 +10,8 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminPostsController extends Controller
 {
-    public function add(){
+    public function add()
+    {
      $authors = Author::all();
      $categories= Category::all();
 
