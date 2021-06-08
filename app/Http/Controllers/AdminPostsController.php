@@ -7,6 +7,8 @@ use App\Category;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 class AdminPostsController extends Controller
 {
@@ -46,6 +48,13 @@ class AdminPostsController extends Controller
         $post -> category() -> sync($request -> input('category_id'),false);
         $post -> category() -> getRelated();
 
+       $log = new Logger('new');
+       $log ->pushHandler(new StreamHandler(__DIR__.'/../../Logs/new_posts_log.log',Logger::INFO));
+       $log->info(' Человек '   .  Auth::user()->name  . ' добавил статью '  .  $post->id);
+       $log->info(' Статья "'   .  $post -> title  . '" принадлежит почте '  . Auth::user()->email );
+
+       $logger = new \Katzgrau\KLogger\Logger(__DIR__.'/../../Logs');
+       $logger->info(' Katzgrau:Человек '   .  Auth::user()->name  . ' добавил статью '  .  $post->id);
         return redirect()-> route('single_post', $post->id);
        }
       }else{

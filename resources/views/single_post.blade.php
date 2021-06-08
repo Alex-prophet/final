@@ -23,6 +23,17 @@
                     Posted on {{$post->updated_at}} by
                     <a href="{{route ('post_by_author',$post->author->key)}}">{{$post->author->name}}</a>
                 </div>
+
+                <div class="card-footer text-muted">
+                    Категории:
+                    @foreach($post->category as $cat)
+                        <a href="{{route('post_by_category',$cat->key)}}"></a>
+                    @endforeach
+
+                </div>
+                <div class="card-footer text-muted">
+                    Просмотры:{{$post->view}}
+                </div>
             </div>
         @if(Auth::check())
             <hr>
