@@ -5,12 +5,12 @@
 
     <!-- Blog Entries Column -->
     <div class="col-md-8">
-
+@if(\Session::has('flash'))
+    <p>{{\Session::get('flash')}}</p>
+        @endif
         <h1 class="my-4">{{$post->title}}
 
         </h1>
-
-
         <!-- Blog Post -->
             <div class="card mb-4">
                 <img class="card-img-top" src="{{$post->image}}" alt="Card image cap">
@@ -60,4 +60,5 @@
         @endif
     </div>
 @endsection
+
 

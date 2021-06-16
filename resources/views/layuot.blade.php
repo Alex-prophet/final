@@ -139,7 +139,18 @@
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
+
+
       <div class="container">
+          <p class="m-0 text-center text-white"> Подпишись на наш канал!</p>
+          <form  class="m-0 text-center text-white" method="post"  action="{{route('subscribed')}}" >
+              @csrf
+              <input  type="email"  name="mail">
+              <input type="submit" value="Подписаться">
+          </form>
+
+
+
         <p class="m-0 text-center text-white"> &copy; Зайцев 2021</p>
       </div>
       <!-- /.container -->

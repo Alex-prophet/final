@@ -6,6 +6,9 @@
     <!-- Blog Entries Column -->
     <div class="col-md-8">
         <br>
+        @if(\Session::has('flash'))
+            <h3>{{\Session::get('flash')}}</h3>
+        @endif
         <hr>
         <form action="/admin/add_post/">
          <button class="btn-outline-danger">Кнопка добавления поста</button>

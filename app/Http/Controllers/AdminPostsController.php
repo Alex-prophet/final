@@ -55,6 +55,8 @@ class AdminPostsController extends Controller
 
        $logger = new \Katzgrau\KLogger\Logger(__DIR__.'/../../Logs');
        $logger->info(' Katzgrau:Человек '   .  Auth::user()->name  . ' добавил статью '  .  $post->id);
+
+       \Session::flash('flash', ' Пост ' . $post->id . ' добавлен на сайт ');
         return redirect()-> route('single_post', $post->id);
        }
       }else{
@@ -97,6 +99,8 @@ if(Auth::check()){
                     $post -> image = 'http.//name/images/' . $imageName;
                 }
                 $post -> save();
+
+                \Session::flash('flash', ' Пост ' . $post->id . ' изменен ');
 
                 return redirect()-> route('admin_post_get');
             }

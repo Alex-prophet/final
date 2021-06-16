@@ -33,8 +33,11 @@ Route::get('/404',function(){
     return view('404');
 })-> name('404');
 
+//Mail
+
+Route::post('/subscribed', MailSubscriberController::class)->name('subscribed');
+
 //Auth
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
