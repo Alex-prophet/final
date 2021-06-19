@@ -59,6 +59,9 @@
             <p>Войдите в аккаунт для просмотра и создания комментария</p>
         @endif
     </div>
-@endsection
 
+@endsection
+@section('side_bar')
+    @include('side_bar')
+@endsection
 

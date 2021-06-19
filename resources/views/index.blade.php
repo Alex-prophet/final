@@ -37,9 +37,6 @@
           </div>
            @endforeach
 
-
-
-
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
               @if($posts->currentPage() !=1)
@@ -58,8 +55,11 @@
                       <li class="page-item"><a class="page-link" href="?page={{$posts->lastPage()}}">Конец</a></li>
                    @endif
 
-
           </ul>
-
         </div>
+
+
         @endsection
+@section('side_bar')
+    @include('side_bar')
+@endsection

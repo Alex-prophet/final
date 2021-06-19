@@ -32,16 +32,12 @@
                 <p>Выберите категорию:</p>
                     @foreach($categories as $category)
                         <div class="form-check">
-                            <input class="form-check-input"  name="category_id" type="checkbox" id="flexCheckDefault" value="{{$category->id}}" >
+                            <input class="form-check-input"  name="category_id[]" type="checkbox"  value="{{$category->id}}">
                             <label class="form-check-label" for="flexCheckDefault">
                                 {{$category->title}}
                             </label>
                         </div>
-
-
-
                     @endforeach
-
                 <hr>
                 <input  type="text"  placeholder="Title" name="title" ><br>
                 <textarea class="form-control" name="body"></textarea><br>

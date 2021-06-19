@@ -45,7 +45,8 @@ class AdminPostsController extends Controller
             $post -> image = 'http.//name/images/' . $imageName;
         }
         $post -> save();
-        $post -> category() -> sync($request -> input('category_id'),false);
+
+        $post -> category() -> attach($request -> input('category_id'));
         $post -> category() -> getRelated();
 
        $log = new Logger('new');
@@ -68,15 +69,18 @@ class AdminPostsController extends Controller
 if(Auth::check()){
     $post = Post::where('id','=',$id)->first();
     $authors = Author::all();
-    return view('Admin.edit_post',['post'=>$post,'authors'=>$authors]);
+    $categories= Category::all();
 
+    return view('Admin.edit_post',[
+        'post'=>$post,
+        'authors'=>$authors,
+        'categories'=>$categories
+    ]);
 
     }else{
     return redirect('404');
 }
     }
-
-
     public function edit_save(Request $request){
         if(Auth::check()){
             if( $request->method()=='POST' ){
@@ -99,6 +103,11 @@ if(Auth::check()){
                     $post -> image = 'http.//name/images/' . $imageName;
                 }
                 $post -> save();
+                $post -> category() -> getRelated();
+                $post -> category() -> sync($request -> input('category_id'));
+                $post -> category() -> getRelated();
+
+
 
                 \Session::flash('flash', ' Пост ' . $post->id . ' изменен ');
 
