@@ -30,26 +30,26 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{route('index')}}"style="color:red">Домой
+              <a class="nav-link" href="{{route('index')}}"style="color:green">Домой
                 <span class="sr-only">(current)</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link "  href="{{route('about')}}"style="color:red" >Наша компания</a>
+              <a class="nav-link "  href="{{route('about')}}"style="color:green" >Наша компания</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('services')}}"style="color:red">Сервис</a>
+              <a class="nav-link" href="{{route('services')}}"style="color:green">Сервис</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('contact')}}"style="color:red">Контакты</a>
+              <a class="nav-link" href="{{route('contact')}}"style="color:green">Контакты</a>
             </li>
               @if(\Illuminate\Support\Facades\Auth::check())
                   <li class="nav-item">
-                      <a class="nav-link" href="{{route('admin_post_get')}}"style="color:red">"Босс"</a>
+                      <a class="nav-link" href="{{route('admin_post_get')}}"style="color:green">"Босс"</a>
                   </li>
               @endif
               <li class="nav-item" >
-                  <a class="nav-link" style="color:gold"
+                  <a class="nav-link" style="color:silver"
                      href="{{route('login')}}">@if( \Illuminate\Support\Facades\Auth::check()){{\Illuminate\Support\Facades\Auth::user()->name}}
                   @else Вход @endif</a>
               </li>
