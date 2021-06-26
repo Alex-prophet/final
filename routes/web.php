@@ -34,9 +34,17 @@ Route::get('/404',function(){
 })-> name('404');
 
 //Mail
-
 Route::post('/subscribed', MailSubscriberController::class)->name('subscribed');
 
+//Cart actions
+Route::get('/cart/add_to_cart/{id}', 'CartAction@add') -> name('add_to_cart');
+
+Route::get('/cart', 'CartAction@show') -> name('cart');
+
+//Delete cart
+Route::get('/cart/delete/{id}', 'CartAction@delete') -> name('delete_from_cart');
+
+Route::post('/cart/update', 'CartAction@update') -> name('update_cart');
 //Auth
 
 Auth::routes();

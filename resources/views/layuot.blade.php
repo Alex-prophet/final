@@ -43,6 +43,9 @@
             <li class="nav-item">
               <a class="nav-link" href="{{route('contact')}}"style="color:green">Контакты</a>
             </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{route('cart')}}"style="color:green">Корзина</a>
+              </li>
               @if(\Illuminate\Support\Facades\Auth::check())
                   <li class="nav-item">
                       <a class="nav-link" href="{{route('admin_post_get')}}"style="color:green">"Босс"</a>
