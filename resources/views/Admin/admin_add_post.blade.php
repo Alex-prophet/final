@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-8" style="color:lawngreen">
 
         <h1 class="my-4">Добавить пост</h1>
         @if ($errors->any())
@@ -30,14 +30,23 @@
              </select>
                <hr>
                 <p>Выберите категорию:</p>
+{{--                    @foreach($categories as $category)--}}
+{{--                        <div class="form-check">--}}
+{{--                            <input class="form-check-input"  name="category_id[]" type="checkbox"  value="{{$category->id}}">--}}
+{{--                            <label class="form-check-label" for="flexCheckDefault">--}}
+{{--                                {{$category->title}}--}}
+{{--                            </label>--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+
+                <select  class="mbd-select md-form"  name="category_id[]">
                     @foreach($categories as $category)
-                        <div class="form-check">
-                            <input class="form-check-input"  name="category_id[]" type="checkbox"  value="{{$category->id}}">
-                            <label class="form-check-label" for="flexCheckDefault">
-                                {{$category->title}}
-                            </label>
-                        </div>
+                        <option value="{{$category->id}}">{{$category->title}}</option>
                     @endforeach
+                </select>
+
+
+
                 <hr>
                 <input  type="text"  placeholder="Title" name="title" ><br>
                 <textarea class="form-control" name="body"></textarea><br>

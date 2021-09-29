@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-8" >
         @if(\Session::has('flash'))
             <p>{{\Session::get('flash')}}</p>
         @endif
@@ -27,7 +27,7 @@
                     @foreach(\Cart::getContent() as $post)
                 <tr>
                     <td>{{$post->id}}</td>
-                    <td> <img src="{{$post->attributes->image}}" width="100" height="50" ></td>
+                    <td> <img src="/images/{{$post->attributes->image}}" width="100" height="50" ></td>
                     <td>{{$post->name}}</td>
                     <td>{{$post->price}}</td>
                     <td> <input type="number" name="items [{{$post->id}}]"

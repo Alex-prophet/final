@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-8" style="color:green">
         <br>
         @if(\Session::has('flash'))
             <h3>{{\Session::get('flash')}}</h3>
@@ -22,7 +22,7 @@
      <thead>
      <tr>
          <th scope="col">ID</th>
-         <th scope="col">Title</th>
+         <th scope="col" >Title</th>
          <th scope="col"></th>
 
      </tr>
@@ -31,9 +31,9 @@
         @foreach($posts as $post)
             <tr>
                 <td scope="row">{{$post->id}}</td>
-                <td><a href="{{route('single_post',$post->id)}}" class="alert">{{$post->title}}</a></td>
+                <td><a href="{{route('single_post',$post->id)}}" class="alert" style="color:silver">{{$post->title}}</a></td>
                 <td><form action="/admin/edit_post/{{$post->id}}" method="get">
-                <input type="hidden" name="id" value="{{$post->id}}">
+                <input type="hidden" name="id" value="{{$post->id}}" >
                 <button type="submit" clas="btn btn-outline-danger">Редактировать пост</button>
                 </form> </td>
 

@@ -6,9 +6,13 @@
 @section('content')
 
 <!-- Blog Entries Column -->
-        <div class="col-md-8">
 
-          <h1 class="my-4">Тут наши данные:</h1>
+        <div class="col-md-8" style="background-image: url(https://mobimg.b-cdn.net/v3/fetch/f9/f9e2c0eb16aad0f18220215b40912920.jpeg);">
+
+          <h1 class="my-2"> Наши данные: </h1>
+            <h1 class="my-2" style="font-size:20px;">  Инстаграм: <a href="https://www.instagram.com/" ><img class="img-fluid" src="https://avatanplus.com/files/resources/original/5bf81e342d2dc1674135fbd9.png" alt="..." style="width:40px;height:40px;"></a> </h1>
+            <h1 class="my-2" style="font-size:20px;">  Фейсбук: <a href="https://www.facebook.com/" ><img class="img-fluid" src="https://pngicon.ru/file/uploads/FaceBook_512x512.png" alt="..." style="width:40px;height:40px;"></a> </h1>
+            <h1 class="my-2" style="font-size:20px;">  Канал на yotube: <a href="https://www.youtube.com/" ><img class="img-fluid" src="https://cdn.icon-icons.com/icons2/836/PNG/512/Youtube_icon-icons.com_66802.png" alt="..." style="width:40px;height:40px;"></a> </h1>
 <ul>
          @foreach($contacts as $contact)
          <li>{{$contact->title}}:{{$contact->value}}</li>
@@ -28,7 +32,24 @@
                         var to = d.getElementsByTagName('script')[0];
                         to.parentNode.insertBefore(s, to);
                     })();</script><a href="https://1map.com/ru/map-embed">1 Map</a></div>
+
+
         </div>
 
 
         @endsection
+@section('side_bar')
+    <!-- Side Widget -->
+    <div class="col-md-4">
+        <div class="card my-4">
+            <h5 class="card-header">Информация</h5>
+            <div class="card-body">
+             Дополниельная информация по контактам
+
+            </div>
+        </div>
+    </div>
+
+
+
+@endsection

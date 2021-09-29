@@ -4,9 +4,9 @@
 @section('content')
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-8" style="color:lawngreen">
 
-        <h1 class="my-4">Редактировать пост {{$post->id}}</h1>
+        <h1 class="my-4">Редактировать пост {{$post->id}} </h1>
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -21,7 +21,7 @@
             <hr>
             <form action="edit_post" method="post" enctype="multipart/form-data">
                 @csrf
-                <p>Выберите автора:</p>
+                <p>Выберите автора: </p>
                 <select  class="mbd-select md-form"  name="author_id">
                     @foreach($authors as $author)
                         <option @if($author->id == $post -> author_id) selected @endif value="{{$author->id}}">{{$author->name}}</option>
@@ -29,14 +29,11 @@
                 </select>
                 <hr>
                 <p>Выберите категорию:</p>
-                @foreach($categories as $category)
-                    <div class="form-check">
-                        <input class="form-check-input"  name="category_id[]" type="checkbox"  value="{{$category->id}}">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            {{$category->title}}
-                        </label>
-                    </div>
-                @endforeach
+                <select  class="mbd-select md-form"  name="category_id[]">
+                    @foreach($categories as $category)
+                        <option value="{{$category->id}}">{{$category->title}}</option>
+                    @endforeach
+                </select>
                 <hr>
                 <hr>
                 <input type="hidden" name="id" value="{{$post->id}}">

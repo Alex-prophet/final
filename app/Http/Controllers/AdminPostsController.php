@@ -30,7 +30,7 @@ class AdminPostsController extends Controller
            'author_id'=>'required | numeric',
            'title'=>'string |required | max:100 | min:5',
            'body'=>'required |  min:20',
-               'image'=>'image'
+           'image'=>'image'
            ]
        );
        $post = new Post();
@@ -42,7 +42,7 @@ class AdminPostsController extends Controller
         if( $image){
             $imageName = $image -> getClientOriginalName();
             $image -> move('images',  $imageName);
-            $post -> image = 'http.//name/images/' . $imageName;
+            $post -> image = $imageName;
         }
         $post -> save();
 
@@ -100,7 +100,7 @@ if(Auth::check()){
                 if( $image){
                     $imageName = $image -> getClientOriginalName();
                     $image -> move('images',  $imageName);
-                    $post -> image = 'http.//name/images/' . $imageName;
+                    $post -> image = $imageName;
                 }
                 $post -> save();
                 $post -> category() -> getRelated();

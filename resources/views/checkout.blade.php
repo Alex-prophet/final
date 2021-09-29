@@ -69,7 +69,7 @@
                     @if(!Cart::isEmpty())
                         @foreach(\Cart::getContent() as $post)
                             <tr>
-                                <td> <img src="{{$post->attributes->image}}" width="100" height="50" ></td>
+                                <td> <img src="/images/{{$post->attributes->image}}" width="100" height="50" ></td>
                                 <td>{{$post->name}}</td>
                                 <td>{{$post->price}}</td>
                                 <td> {{$post->quantity}} </td>

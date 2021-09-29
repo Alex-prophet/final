@@ -4,7 +4,7 @@
 @section('content')
 
     <!-- Blog Entries Column -->
-    <div class="col-md-8">
+    <div class="col-md-8" style="color:lawngreen">
 @if(\Session::has('flash'))
     <p>{{\Session::get('flash')}}</p>
         @endif
@@ -13,7 +13,7 @@
         </h1>
         <!-- Blog Post -->
             <div class="card mb-4">
-                <img class="card-img-top" src="{{$post->image}}" alt="Card image cap">
+                <img class="card-img-top" src="/images/{{$post->image}}" alt="Card image cap">
                 <div class="card-body">
 
                     <p class="card-text">{{$post->body}}</p>
@@ -57,6 +57,7 @@
             @endif
         @else
             <p>Войдите в аккаунт для просмотра и создания комментария</p>
+
         @endif
     </div>
 
